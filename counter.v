@@ -3,21 +3,13 @@
 module stimulus();
 	// Inputs
 	reg rst_n =0;
-	initial begin 
-		$dumpfile("test.vcd");
-		$dumpvars(0,test);
 
-		// changing values here.
-
-		%20 d=1;
-
-	end
-
+	parameter iv = 1;
 	reg clk = 0;
 	always #1 clk = !clk;
 	reg clk_en = 1;
 
-	
+		
 
 	// Outputs
 	wire q_1,q_2,d1toq_1,q1toclk2,q_2tod2,q2;
@@ -28,16 +20,16 @@ module stimulus();
 		.clk   (clk   ),
 		.clk_en(clk_en),
 		.rst_n (rst_n ),
-		.d3    (d1toq_1),    ),
+		.d3    (d1toq_1),   
 		
 		.q     (q1toclk2     )
 	);
 
-	ff ff1 (
+	ff ff2 (
 		.clk   (q1toclk2   ),
 		.clk_en(clk_en),
 		.rst_n (rst_n ),
-		.d3    (q_2tod2),    ),
+		.d3    (q_2tod2),   
 		
 		.q     (q2     )
 	);
@@ -49,22 +41,10 @@ module stimulus();
 
 	initial begin
 		$display("q1\tq2\tclk\n"); //Setup Table Headers
-
-		
-		// 	time delay	changes
-		
-		#4		 	 = 1;
-		#10	 		clk = 0;
-		#20			d = 0;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
-
-		#40;
-
 	end
 
 	initial begin
-		$monitor("%d\t%d\t%d\t%d \n",d,clk,q,clk_en);
+		$monitor("%d\t%d\t%d \n",q1toclk2,q2,clk);
 	end
 
 endmodule
