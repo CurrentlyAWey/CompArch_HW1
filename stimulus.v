@@ -18,7 +18,7 @@ module stimulus();
 		.rst_n (rst_n ),
 		.d3    (d    ),
 		
-		.qprime     (q     )
+		.q    (q     )
 	);
 
 	initial begin
@@ -32,45 +32,35 @@ module stimulus();
 		// Initialize Inputs
 		d = 1;
 		/* Make a regular pulsing clock. */
-//		reg clk = 0;
-//		always #1 clk = !clk;
+		clk = 0;
+		
 		clk_en = 1;
 		rst_n = 0;
 
-		// 	time delay	changes
-		#20			clk = 1;
-		#10			clk = 0;
-		//not floating; clocked into q
+		#10			rst_n = 1;
 
-		#10
-		rst_n=1;
-
-
-
-		#20			d = 0;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
-		#20 		d = 1;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
-		#20			d = 0;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
-
-		$display("clk_en stuff");
-		#20			d = 1;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
 		#20			rst_n = 0;
-		#10		 	clk = 1;
-		#10	 		clk = 0;
+
+		#20			d = 0;
+		#20 		d = 1;
+		#20			d = 0;
+		#20 		d = 1;
+		#20			rst_n = 1;
+		#20			d = 0;
+		#20 		d = 1;
+		#20			d = 0;
+		#20 		d = 1;
 
 		#40;
 
 	end
 
+	always #20 clk = !clk;
+		
 	initial begin
 		$monitor("%d\t%d\t%d\t%d\t%d \n",d,clk,q,clk_en,rst_n);
 	end
+
+	initial #100 $finish;
 
 endmodule
