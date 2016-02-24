@@ -6,36 +6,14 @@
 :vpi_module "vhdl_sys";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_01123A28 .scope module, "mux21" "mux21" 2 1;
- .timescale 0 0;
-    .port_info 0 /INPUT 1 "a0"
-    .port_info 1 /INPUT 1 "d1"
-    .port_info 2 /INPUT 1 "d0"
-    .port_info 3 /OUTPUT 1 "q"
-o01124FCC .functor BUFZ 1, C4<z>; HiZ drive
-L_008BD950 .functor NOT 1, o01124FCC, C4<0>, C4<0>, C4<0>;
-o0112505C .functor BUFZ 1, C4<z>; HiZ drive
-L_008BDA28 .functor AND 1, o01124FCC, o0112505C, C4<1>, C4<1>;
-o01125044 .functor BUFZ 1, C4<z>; HiZ drive
-L_008BD878 .functor AND 1, L_008BD950, o01125044, C4<1>, C4<1>;
-o0112502C .functor BUFZ 1, C4<z>; HiZ drive
-L_008BD8C0 .functor OR 1, L_008BDA28, o0112502C, C4<0>, C4<0>;
-v008BAD68_0 .net "a0", 0 0, o01124FCC;  0 drivers
-v008BABB0_0 .net "a0_", 0 0, L_008BD950;  1 drivers
-v008BAB58_0 .net "and0", 0 0, L_008BD878;  1 drivers
-v008BA840_0 .net "and1", 0 0, L_008BDA28;  1 drivers
-v008BADC0_0 .net "and2", 0 0, o0112502C;  0 drivers
-v008BAC08_0 .net "d0", 0 0, o01125044;  0 drivers
-v008BA7E8_0 .net "d1", 0 0, o0112505C;  0 drivers
-v008BAC60_0 .net "q", 0 0, L_008BD8C0;  1 drivers
-S_01123AF8 .scope module, "stimulus" "stimulus" 3 3;
+S_00842F98 .scope module, "stimulus" "stimulus" 2 3;
  .timescale -9 -12;
-v01120470_0 .var "clk", 0 0;
-v01120788_0 .var "clk_en", 0 0;
-v01120C58_0 .var "d", 0 0;
-v01120368_0 .net "q", 0 0, L_008BD830;  1 drivers
-v01120838_0 .var "rst_n", 0 0;
-S_01122F98 .scope module, "uut" "ff" 3 15, 4 1 0, S_01123AF8;
+v00840BB0_0 .var "clk", 0 0;
+v00840C08_0 .var "clk_en", 0 0;
+v00840F78_0 .var "d", 0 0;
+v00840FD0_0 .net "q", 0 0, L_0091D350;  1 drivers
+v00841028_0 .var "rst_n", 0 0;
+S_00843068 .scope module, "uut" "ff" 2 15, 3 1 0, S_00842F98;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "clk"
     .port_info 1 /INPUT 1 "clk_en"
@@ -43,104 +21,100 @@ S_01122F98 .scope module, "uut" "ff" 3 15, 4 1 0, S_01123AF8;
     .port_info 3 /INPUT 1 "d3"
     .port_info 4 /OUTPUT 1 "q"
     .port_info 5 /OUTPUT 1 "q_"
-L_008BDD88 .functor AND 1, v01120C58_0, v01120788_0, C4<1>, C4<1>;
-L_008BDBD8 .functor NOT 1, v01120788_0, C4<0>, C4<0>, C4<0>;
-L_008BDEA8 .functor AND 1, L_008BDBD8, L_008BD830, C4<1>, C4<1>;
-L_008BDE60 .functor OR 1, L_008BDD88, L_008BDEA8, C4<0>, C4<0>;
-L_008BDCB0 .functor NOT 1, v01120470_0, C4<0>, C4<0>, C4<0>;
-L_008BDEF0 .functor NOT 1, L_008BDE60, C4<0>, C4<0>, C4<0>;
-L_008BD758 .functor NAND 1, L_008BDE60, L_008BDCB0, C4<1>, C4<1>;
-L_008BDDD0 .functor NAND 1, L_008BDEF0, L_008BDCB0, C4<1>, C4<1>;
-L_008BDB00 .functor NAND 1, L_008BD758, L_008BD7A0, C4<1>, C4<1>;
-L_008BD7A0 .functor NAND 1, L_008BDDD0, L_008BDB00, C4<1>, C4<1>;
-L_008BD7E8 .functor NAND 1, v01120470_0, L_008BDB00, C4<1>, C4<1>;
-L_008BD908 .functor NAND 1, v01120470_0, L_008BD7A0, C4<1>, C4<1>;
-L_008BD830 .functor NAND 1, L_008BD7E8, L_008BDA70, C4<1>, C4<1>;
-L_008BDA70 .functor NAND 1, L_008BD908, L_008BD830, C4<1>, C4<1>;
-v008BAE70_0 .net "clk", 0 0, v01120470_0;  1 drivers
-v008BAD10_0 .net "clk_", 0 0, L_008BDCB0;  1 drivers
-v008BACB8_0 .net "clk_en", 0 0, v01120788_0;  1 drivers
-v008BA9F8_0 .net "clk_en_", 0 0, L_008BDBD8;  1 drivers
-v008BA898_0 .net "d", 0 0, L_008BDE60;  1 drivers
-v008BAA50_0 .net "d2", 0 0, L_008BDD88;  1 drivers
-v008BAE18_0 .net "d3", 0 0, v01120C58_0;  1 drivers
-v008BA948_0 .net "d_", 0 0, L_008BDEF0;  1 drivers
-v008BAB00_0 .net "q", 0 0, L_008BD830;  alias, 1 drivers
-v008BAEC8_0 .net "q2", 0 0, L_008BDEA8;  1 drivers
-v008BA8F0_0 .net "q_", 0 0, L_008BDA70;  1 drivers
-v008BA790_0 .net "r1", 0 0, L_008BDDD0;  1 drivers
-v008BA9A0_0 .net "r2", 0 0, L_008BD7A0;  1 drivers
-v01120730_0 .net "r3", 0 0, L_008BD908;  1 drivers
-v01120998_0 .net "rst_n", 0 0, v01120838_0;  1 drivers
-v011208E8_0 .net "s1", 0 0, L_008BD758;  1 drivers
-v01120628_0 .net "s2", 0 0, L_008BDB00;  1 drivers
-v01120578_0 .net "s3", 0 0, L_008BD7E8;  1 drivers
-    .scope S_01123AF8;
+L_0091D1A0 .functor AND 1, v00840F78_0, v00840C08_0, C4<1>, C4<1>;
+L_0091CD20 .functor NOT 1, v00840C08_0, C4<0>, C4<0>, C4<0>;
+L_0091D278 .functor AND 1, L_0091CD20, L_0091D350, C4<1>, C4<1>;
+L_0091CD68 .functor OR 1, L_0091D1A0, L_0091D278, C4<0>, C4<0>;
+L_0091D2C0 .functor NOT 1, v00840BB0_0, C4<0>, C4<0>, C4<0>;
+L_0091D308 .functor NOT 1, L_0091CD68, C4<0>, C4<0>, C4<0>;
+L_0091CED0 .functor NAND 1, L_0091CD68, L_0091D2C0, C4<1>, C4<1>;
+L_0091D110 .functor NAND 1, L_0091D308, L_0091D2C0, C4<1>, C4<1>;
+L_0091CDF8 .functor NAND 1, L_0091CED0, L_0091CF60, C4<1>, C4<1>;
+L_0091CF60 .functor NAND 1, L_0091D110, L_0091CDF8, C4<1>, C4<1>;
+L_0091D230 .functor NAND 1, v00840BB0_0, L_0091CDF8, C4<1>, C4<1>;
+L_0091CF18 .functor NAND 1, v00840BB0_0, L_0091CF60, C4<1>, C4<1>;
+L_0091D350 .functor NAND 1, L_0091D230, L_0091D0C8, C4<1>, C4<1>;
+L_0091D0C8 .functor NAND 1, L_0091CF18, L_0091D350, C4<1>, C4<1>;
+v0091E620_0 .net "clk", 0 0, v00840BB0_0;  1 drivers
+v00912FE8_0 .net "clk_", 0 0, L_0091D2C0;  1 drivers
+v00913040_0 .net "clk_en", 0 0, v00840C08_0;  1 drivers
+v008409A0_0 .net "clk_en_", 0 0, L_0091CD20;  1 drivers
+v00840E18_0 .net "d", 0 0, L_0091CD68;  1 drivers
+v008409F8_0 .net "d2", 0 0, L_0091D1A0;  1 drivers
+v00840E70_0 .net "d3", 0 0, v00840F78_0;  1 drivers
+v00840CB8_0 .net "d_", 0 0, L_0091D308;  1 drivers
+v00840EC8_0 .net "q", 0 0, L_0091D350;  alias, 1 drivers
+v00840A50_0 .net "q2", 0 0, L_0091D278;  1 drivers
+v008408F0_0 .net "q_", 0 0, L_0091D0C8;  1 drivers
+v00840AA8_0 .net "r1", 0 0, L_0091D110;  1 drivers
+v00840D10_0 .net "r2", 0 0, L_0091CF60;  1 drivers
+v00840DC0_0 .net "r3", 0 0, L_0091CF18;  1 drivers
+v00840F20_0 .net "rst_n", 0 0, v00841028_0;  1 drivers
+v00840C60_0 .net "s1", 0 0, L_0091CED0;  1 drivers
+v00840B00_0 .net "s2", 0 0, L_0091CDF8;  1 drivers
+v00840B58_0 .net "s3", 0 0, L_0091D230;  1 drivers
+    .scope S_00842F98;
 T_0 ;
-    %set/v v01120838_0, 0, 1;
+    %set/v v00841028_0, 0, 1;
     %end;
     .thread T_0;
-    .scope S_01123AF8;
+    .scope S_00842F98;
 T_1 ;
-    %vpi_call 3 25 "$dumpfile", "ff.vcd" {0 0};
-    %vpi_call 3 26 "$dumpvars", 6'sb010101, v01120C58_0, v01120470_0, v01120368_0, v01120788_0, v01120838_0 {0 0};
+    %vpi_call 2 25 "$dumpfile", "ff.vcd" {0 0};
+    %vpi_call 2 26 "$dumpvars", 6'sb010101, v00840F78_0, v00840BB0_0, v00840FD0_0, v00840C08_0, v00841028_0 {0 0};
     %end;
     .thread T_1;
-    .scope S_01123AF8;
+    .scope S_00842F98;
 T_2 ;
-    %vpi_call 3 30 "$display", "d\011clk\011q\011clk_en\011rst_n\012" {0 0};
-    %set/v v01120C58_0, 1, 1;
-    %set/v v01120470_0, 0, 1;
-    %set/v v01120788_0, 1, 1;
-    %set/v v01120838_0, 0, 1;
-    %delay 10000, 0;
-    %set/v v01120838_0, 1, 1;
+    %vpi_call 2 30 "$display", "time\011d\011clk\011q\011clk_en\011rst_n\012" {0 0};
+    %set/v v00840F78_0, 1, 1;
+    %set/v v00840BB0_0, 0, 1;
+    %set/v v00840C08_0, 1, 1;
     %delay 20000, 0;
-    %set/v v01120838_0, 0, 1;
+    %set/v v00841028_0, 0, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 0, 1;
+    %set/v v00840F78_0, 0, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 1, 1;
+    %set/v v00840F78_0, 1, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 0, 1;
+    %set/v v00840F78_0, 0, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 1, 1;
+    %set/v v00840F78_0, 1, 1;
     %delay 20000, 0;
-    %set/v v01120838_0, 1, 1;
+    %set/v v00841028_0, 1, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 0, 1;
+    %set/v v00840F78_0, 0, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 1, 1;
+    %set/v v00840F78_0, 1, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 0, 1;
+    %set/v v00840F78_0, 0, 1;
     %delay 20000, 0;
-    %set/v v01120C58_0, 1, 1;
+    %set/v v00840F78_0, 1, 1;
     %delay 40000, 0;
     %end;
     .thread T_2;
-    .scope S_01123AF8;
+    .scope S_00842F98;
 T_3 ;
     %delay 20000, 0;
-    %load/v 8, v01120470_0, 1;
+    %load/v 8, v00840BB0_0, 1;
     %inv 8, 1;
-    %set/v v01120470_0, 8, 1;
+    %set/v v00840BB0_0, 8, 1;
     %jmp T_3;
     .thread T_3;
-    .scope S_01123AF8;
+    .scope S_00842F98;
 T_4 ;
-    %vpi_call 3 61 "$monitor", "%d\011%d\011%d\011%d\011%d \012", v01120C58_0, v01120470_0, v01120368_0, v01120788_0, v01120838_0 {0 0};
+    %vpi_call 2 57 "$monitor", "%d\011%d\011%d\011%d\011%d\011%d \012", $time, v00840F78_0, v00840BB0_0, v00840FD0_0, v00840C08_0, v00841028_0 {0 0};
     %end;
     .thread T_4;
-    .scope S_01123AF8;
+    .scope S_00842F98;
 T_5 ;
     %delay 100000, 0;
-    %vpi_call 3 64 "$finish" {0 0};
+    %vpi_call 2 60 "$finish" {0 0};
     %end;
     .thread T_5;
 # The file index is used to find the file name in the following table.
-:file_names 5;
+:file_names 4;
     "N/A";
     "<interactive>";
-    "mux21.v";
     "stimulus.v";
     "ff.v";

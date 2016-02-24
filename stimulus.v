@@ -27,7 +27,7 @@ module stimulus();
 	end
 
 	initial begin
-		$display("d\tclk\tq\tclk_en\trst_n\n"); //Setup Table Headers
+		$display("time\td\tclk\tq\tclk_en\trst_n\n"); //Setup Table Headers
 
 		// Initialize Inputs
 		d = 1;
@@ -35,10 +35,6 @@ module stimulus();
 		clk = 0;
 		
 		clk_en = 1;
-		rst_n = 0;
-
-		#10			rst_n = 1;
-
 		#20			rst_n = 0;
 
 		#20			d = 0;
@@ -58,7 +54,7 @@ module stimulus();
 	always #20 clk = !clk;
 		
 	initial begin
-		$monitor("%d\t%d\t%d\t%d\t%d \n",d,clk,q,clk_en,rst_n);
+		$monitor("%d\t%d\t%d\t%d\t%d\t%d \n",$time,d,clk,q,clk_en,rst_n);
 	end
 
 	initial #100 $finish;
