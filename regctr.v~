@@ -1,16 +1,18 @@
 module regctr (
+	input  i1     , //MSB of data
+	input  i0     , //LSB of data
 	input  clk    ,
 	input  clk_en ,
-	input  rst_n,
+	input  reset_n,
 	output q2     , //c2	MSB of state
 	output q1     , //c1 	2SB of state
 	output q0       //c0	LSB of state
 );
 
-	wire d0,d1,d2, q2, q1, q0;
-	assign d2 = q2&(~q1) | q2&(~q0) | (~q2)&q1&q0; 
-	assign d1 = (~q1)&q0 | q1&(~q0);
-	assign d0 = ~q0; 
+	wire d0,d1,d2;
+	and(d2,i1,i0);
+	xor(d1,i1,i0);
+	not(d0,i0);
 
 	ff ff0 (
 		.clk   (clk   ),

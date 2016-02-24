@@ -9,6 +9,8 @@ module demux (in, //Single input
 	output inc, jnp, halt, start;
 	input in, c1, c2;
 	
+	wire in, c1, c2, inc, jnp, halt, start;
+	
 	assign inc = in & (~c1) & (~c2);
 	assign jnp = in & (~c1) & (c2);
 	assign halt = in & (c1) & (~c2);
