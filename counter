@@ -1,0 +1,151 @@
+#! c:/iverilog/bin/vvp
+:ivl_version "0.10.0 (devel)" "(s20130827)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0117AFE0 .scope module, "stimulus" "stimulus" 2 3;
+ .timescale -9 -12;
+P_00FE18D0 .param/l "iv" 0 2 7, +C4<01>;
+o00FE4424 .functor BUFZ 1, C4<z>; HiZ drive
+L_00FE2560 .functor NOT 1, o00FE4424, C4<0>, C4<0>, C4<0>;
+L_00FE25A8 .functor NOT 1, L_0100B000, C4<0>, C4<0>, C4<0>;
+v00FE05C0_0 .var "clk", 0 0;
+v00FE0B40_0 .var "clk_en", 0 0;
+o00FE407C .functor BUFZ 1, C4<z>; HiZ drive
+v00FE0880_0 .net "d1toq_1", 0 0, o00FE407C;  0 drivers
+v00FE03B0_0 .net "q1", 0 0, o00FE4424;  0 drivers
+v00FE0B98_0 .net "q1toclk2", 0 0, L_0100ADC0;  1 drivers
+v00FE04B8_0 .net "q2", 0 0, L_0100B000;  1 drivers
+v00FE08D8_0 .net "q_1", 0 0, L_00FE2560;  1 drivers
+v00FE09E0_0 .net "q_2", 0 0, L_00FE25A8;  1 drivers
+o00FE428C .functor BUFZ 1, C4<z>; HiZ drive
+v00FE06C8_0 .net "q_2tod2", 0 0, o00FE428C;  0 drivers
+v00FE0408_0 .var "rst_n", 0 0;
+S_01173000 .scope module, "ff1" "ff" 2 19, 3 1 0, S_0117AFE0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /INPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "q"
+    .port_info 5 /OUTPUT 1 "q_"
+L_00FE25F0 .functor AND 1, o00FE407C, v00FE0B40_0, C4<1>, C4<1>;
+L_00FE1228 .functor NOT 1, v00FE0B40_0, C4<0>, C4<0>, C4<0>;
+L_00FE12D8 .functor AND 1, L_00FE1228, L_0100ADC0, C4<1>, C4<1>;
+L_00FE1320 .functor OR 1, L_00FE25F0, L_00FE12D8, C4<0>, C4<0>;
+L_00FE1368 .functor NOT 1, v00FE05C0_0, C4<0>, C4<0>, C4<0>;
+L_00FE13B0 .functor NOT 1, L_00FE1320, C4<0>, C4<0>, C4<0>;
+L_0100B3A8 .functor NAND 1, L_00FE1320, L_00FE1368, C4<1>, C4<1>;
+L_0100AE50 .functor NAND 1, L_00FE13B0, L_00FE1368, C4<1>, C4<1>;
+L_0100AD30 .functor NAND 1, L_0100B3A8, L_0100B3F0, C4<1>, C4<1>;
+L_0100B3F0 .functor NAND 1, L_0100AE50, L_0100AD30, C4<1>, C4<1>;
+L_0100AD78 .functor NAND 1, v00FE05C0_0, L_0100AD30, C4<1>, C4<1>;
+L_0100B0D8 .functor NAND 1, v00FE05C0_0, L_0100B3F0, C4<1>, C4<1>;
+L_0100ADC0 .functor NAND 1, L_0100AD78, L_0100B2D0, C4<1>, C4<1>;
+L_0100B2D0 .functor NAND 1, L_0100B0D8, L_0100ADC0, C4<1>, C4<1>;
+v00FD1D10_0 .net "clk", 0 0, v00FE05C0_0;  1 drivers
+v00FD1B58_0 .net "clk_", 0 0, L_00FE1368;  1 drivers
+v00FD1EC8_0 .net "clk_en", 0 0, v00FE0B40_0;  1 drivers
+v00FD1D68_0 .net "clk_en_", 0 0, L_00FE1228;  1 drivers
+v00FD1DC0_0 .net "d", 0 0, L_00FE1320;  1 drivers
+v00FD1BB0_0 .net "d2", 0 0, L_00FE25F0;  1 drivers
+v00FD1C60_0 .net "d3", 0 0, o00FE407C;  alias, 0 drivers
+v00FD1CB8_0 .net "d_", 0 0, L_00FE13B0;  1 drivers
+v00FE1010_0 .net "q", 0 0, L_0100ADC0;  alias, 1 drivers
+v00FE0E00_0 .net "q2", 0 0, L_00FE12D8;  1 drivers
+v00FE1068_0 .net "q_", 0 0, L_0100B2D0;  1 drivers
+v00FE0FB8_0 .net "r1", 0 0, L_0100AE50;  1 drivers
+v00FE0EB0_0 .net "r2", 0 0, L_0100B3F0;  1 drivers
+v00FE10C0_0 .net "r3", 0 0, L_0100B0D8;  1 drivers
+v00FE0D50_0 .net "rst_n", 0 0, v00FE0408_0;  1 drivers
+v00FE0F60_0 .net "s1", 0 0, L_0100B3A8;  1 drivers
+v00FE1118_0 .net "s2", 0 0, L_0100AD30;  1 drivers
+v00FE1170_0 .net "s3", 0 0, L_0100AD78;  1 drivers
+S_011730D0 .scope module, "ff2" "ff" 2 28, 3 1 0, S_0117AFE0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /INPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "q"
+    .port_info 5 /OUTPUT 1 "q_"
+L_0100B318 .functor AND 1, o00FE428C, v00FE0B40_0, C4<1>, C4<1>;
+L_0100B090 .functor NOT 1, v00FE0B40_0, C4<0>, C4<0>, C4<0>;
+L_0100AFB8 .functor AND 1, L_0100B090, L_0100B000, C4<1>, C4<1>;
+L_0100AE08 .functor OR 1, L_0100B318, L_0100AFB8, C4<0>, C4<0>;
+L_0100B120 .functor NOT 1, L_0100ADC0, C4<0>, C4<0>, C4<0>;
+L_0100B048 .functor NOT 1, L_0100AE08, C4<0>, C4<0>, C4<0>;
+L_0100AC58 .functor NAND 1, L_0100AE08, L_0100B120, C4<1>, C4<1>;
+L_0100AE98 .functor NAND 1, L_0100B048, L_0100B120, C4<1>, C4<1>;
+L_0100AEE0 .functor NAND 1, L_0100AC58, L_0100AF28, C4<1>, C4<1>;
+L_0100AF28 .functor NAND 1, L_0100AE98, L_0100AEE0, C4<1>, C4<1>;
+L_0100AF70 .functor NAND 1, L_0100ADC0, L_0100AEE0, C4<1>, C4<1>;
+L_0100B168 .functor NAND 1, L_0100ADC0, L_0100AF28, C4<1>, C4<1>;
+L_0100B000 .functor NAND 1, L_0100AF70, L_0100B1B0, C4<1>, C4<1>;
+L_0100B1B0 .functor NAND 1, L_0100B168, L_0100B000, C4<1>, C4<1>;
+v00FE0DA8_0 .net "clk", 0 0, L_0100ADC0;  alias, 1 drivers
+v00FE0E58_0 .net "clk_", 0 0, L_0100B120;  1 drivers
+v00FE0F08_0 .net "clk_en", 0 0, v00FE0B40_0;  alias, 1 drivers
+v00FE11C8_0 .net "clk_en_", 0 0, L_0100B090;  1 drivers
+v00FE0CF8_0 .net "d", 0 0, L_0100AE08;  1 drivers
+v00FE0778_0 .net "d2", 0 0, L_0100B318;  1 drivers
+v00FE0CA0_0 .net "d3", 0 0, o00FE428C;  alias, 0 drivers
+v00FE0618_0 .net "d_", 0 0, L_0100B048;  1 drivers
+v00FE0BF0_0 .net "q", 0 0, L_0100B000;  alias, 1 drivers
+v00FE0250_0 .net "q2", 0 0, L_0100AFB8;  1 drivers
+v00FE0670_0 .net "q_", 0 0, L_0100B1B0;  1 drivers
+v00FE0AE8_0 .net "r1", 0 0, L_0100AE98;  1 drivers
+v00FE02A8_0 .net "r2", 0 0, L_0100AF28;  1 drivers
+v00FE0A38_0 .net "r3", 0 0, L_0100B168;  1 drivers
+v00FE0300_0 .net "rst_n", 0 0, v00FE0408_0;  alias, 1 drivers
+v00FE0358_0 .net "s1", 0 0, L_0100AC58;  1 drivers
+v00FE0C48_0 .net "s2", 0 0, L_0100AEE0;  1 drivers
+v00FE0A90_0 .net "s3", 0 0, L_0100AF70;  1 drivers
+    .scope S_0117AFE0;
+T_0 ;
+    %set/v v00FE0408_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0117AFE0;
+T_1 ;
+    %set/v v00FE05C0_0, 0, 1;
+    %end;
+    .thread T_1;
+    .scope S_0117AFE0;
+T_2 ;
+    %delay 1000, 0;
+    %load/v 8, v00FE05C0_0, 1;
+    %inv 8, 1;
+    %set/v v00FE05C0_0, 8, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0117AFE0;
+T_3 ;
+    %set/v v00FE0B40_0, 1, 1;
+    %end;
+    .thread T_3;
+    .scope S_0117AFE0;
+T_4 ;
+    %vpi_call 2 38 "$dumpfile", "ff.vcd" {0 0};
+    %vpi_call 2 39 "$dumpvars", 6'sb010101, v00FE0B98_0, v00FE04B8_0, v00FE05C0_0 {0 0};
+    %end;
+    .thread T_4;
+    .scope S_0117AFE0;
+T_5 ;
+    %vpi_call 2 43 "$display", "q1\011q2\011clk\012" {0 0};
+    %end;
+    .thread T_5;
+    .scope S_0117AFE0;
+T_6 ;
+    %vpi_call 2 47 "$monitor", "%d\011%d\011%d \012", v00FE0B98_0, v00FE04B8_0, v00FE05C0_0 {0 0};
+    %end;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "counter.v";
+    "ff.v";

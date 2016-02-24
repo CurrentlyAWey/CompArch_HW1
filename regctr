@@ -1,0 +1,181 @@
+#! c:/iverilog/bin/vvp
+:ivl_version "0.10.0 (devel)" "(s20130827)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0082D200 .scope module, "regctr" "regctr" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /OUTPUT 1 "q2"
+    .port_info 4 /OUTPUT 1 "q1"
+    .port_info 5 /OUTPUT 1 "q0"
+L_00861DE0 .functor NOT 1, L_0088F370, C4<0>, C4<0>, C4<0>;
+L_0088EC48 .functor AND 1, L_00890BE8, L_00861DE0, C4<1>, C4<1>;
+L_0088EC90 .functor NOT 1, L_0088F520, C4<0>, C4<0>, C4<0>;
+L_0088ECD8 .functor AND 1, L_00890BE8, L_0088EC90, C4<1>, C4<1>;
+L_0088ED20 .functor OR 1, L_0088EC48, L_0088ECD8, C4<0>, C4<0>;
+L_0088ED68 .functor NOT 1, L_00890BE8, C4<0>, C4<0>, C4<0>;
+L_0088EE18 .functor AND 1, L_0088ED68, L_0088F370, C4<1>, C4<1>;
+L_0088EE60 .functor AND 1, L_0088EE18, L_0088F520, C4<1>, C4<1>;
+L_0088EEA8 .functor OR 1, L_0088ED20, L_0088EE60, C4<0>, C4<0>;
+L_0088EEF0 .functor NOT 1, L_0088F370, C4<0>, C4<0>, C4<0>;
+L_0088EFA0 .functor AND 1, L_0088EEF0, L_0088F520, C4<1>, C4<1>;
+L_00861268 .functor NOT 1, L_0088F520, C4<0>, C4<0>, C4<0>;
+L_008612B0 .functor AND 1, L_0088F370, L_00861268, C4<1>, C4<1>;
+L_008612F8 .functor OR 1, L_0088EFA0, L_008612B0, C4<0>, C4<0>;
+L_00861340 .functor NOT 1, L_0088F520, C4<0>, C4<0>, C4<0>;
+v0088D450_0 .net *"_s0", 0 0, L_00861DE0;  1 drivers
+v0088CCC0_0 .net *"_s10", 0 0, L_0088ED68;  1 drivers
+v0088CD18_0 .net *"_s12", 0 0, L_0088EE18;  1 drivers
+v0088DBE0_0 .net *"_s14", 0 0, L_0088EE60;  1 drivers
+v0088D7C0_0 .net *"_s18", 0 0, L_0088EEF0;  1 drivers
+v0088DB88_0 .net *"_s2", 0 0, L_0088EC48;  1 drivers
+v0088DAD8_0 .net *"_s20", 0 0, L_0088EFA0;  1 drivers
+v0088D768_0 .net *"_s22", 0 0, L_00861268;  1 drivers
+v0088DA80_0 .net *"_s24", 0 0, L_008612B0;  1 drivers
+v0088D818_0 .net *"_s4", 0 0, L_0088EC90;  1 drivers
+v0088D870_0 .net *"_s6", 0 0, L_0088ECD8;  1 drivers
+v0088D920_0 .net *"_s8", 0 0, L_0088ED20;  1 drivers
+o00863FEC .functor BUFZ 1, C4<z>; HiZ drive
+v0088DB30_0 .net "clk", 0 0, o00863FEC;  0 drivers
+o0086401C .functor BUFZ 1, C4<z>; HiZ drive
+v0088D8C8_0 .net "clk_en", 0 0, o0086401C;  0 drivers
+v0088D978_0 .net "d0", 0 0, L_00861340;  1 drivers
+v0088D9D0_0 .net "d1", 0 0, L_008612F8;  1 drivers
+v0088DA28_0 .net "d2", 0 0, L_0088EEA8;  1 drivers
+v0088E458_0 .net "q0", 0 0, L_0088F520;  1 drivers
+v0088E610_0 .net "q1", 0 0, L_0088F370;  1 drivers
+v0088E198_0 .net "q2", 0 0, L_00890BE8;  1 drivers
+o0086413C .functor BUFZ 1, C4<z>; HiZ drive
+v0088E508_0 .net "rst_n", 0 0, o0086413C;  0 drivers
+S_00823000 .scope module, "ff0" "ff" 2 15, 3 1 0, S_0082D200;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /INPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "q"
+    .port_info 5 /OUTPUT 1 "q_"
+L_0088F448 .functor AND 1, L_00861340, o0086401C, C4<1>, C4<1>;
+L_0088F298 .functor NOT 1, o0086401C, C4<0>, C4<0>, C4<0>;
+L_0088F3B8 .functor AND 1, L_0088F298, L_0088F520, C4<1>, C4<1>;
+L_0088F250 .functor OR 1, L_0088F448, L_0088F3B8, C4<0>, C4<0>;
+L_0088F058 .functor NOT 1, o00863FEC, C4<0>, C4<0>, C4<0>;
+L_0088F490 .functor NOT 1, L_0088F250, C4<0>, C4<0>, C4<0>;
+L_0088F7A8 .functor NAND 1, L_0088F250, L_0088F058, C4<1>, C4<1>;
+L_0088F010 .functor NAND 1, L_0088F490, L_0088F058, C4<1>, C4<1>;
+L_0088F5F8 .functor NAND 1, L_0088F7A8, L_0088F6D0, C4<1>, C4<1>;
+L_0088F6D0 .functor NAND 1, L_0088F010, L_0088F5F8, C4<1>, C4<1>;
+L_0088F178 .functor NAND 1, o00863FEC, L_0088F5F8, C4<1>, C4<1>;
+L_0088F4D8 .functor NAND 1, o00863FEC, L_0088F6D0, C4<1>, C4<1>;
+L_0088F520 .functor NAND 1, L_0088F178, L_0088F0A0, C4<1>, C4<1>;
+L_0088F0A0 .functor NAND 1, L_0088F4D8, L_0088F520, C4<1>, C4<1>;
+v008542F0_0 .net "clk", 0 0, o00863FEC;  alias, 0 drivers
+v008543A0_0 .net "clk_", 0 0, L_0088F058;  1 drivers
+v008545B0_0 .net "clk_en", 0 0, o0086401C;  alias, 0 drivers
+v00854768_0 .net "clk_en_", 0 0, L_0088F298;  1 drivers
+v00854608_0 .net "d", 0 0, L_0088F250;  1 drivers
+v00854088_0 .net "d2", 0 0, L_0088F448;  1 drivers
+v008544A8_0 .net "d3", 0 0, L_00861340;  alias, 1 drivers
+v00854660_0 .net "d_", 0 0, L_0088F490;  1 drivers
+v008546B8_0 .net "q", 0 0, L_0088F520;  alias, 1 drivers
+v008540E0_0 .net "q2", 0 0, L_0088F3B8;  1 drivers
+v00854138_0 .net "q_", 0 0, L_0088F0A0;  1 drivers
+v00854A28_0 .net "r1", 0 0, L_0088F010;  1 drivers
+v00854C90_0 .net "r2", 0 0, L_0088F6D0;  1 drivers
+v00854AD8_0 .net "r3", 0 0, L_0088F4D8;  1 drivers
+v00854D40_0 .net "rst_n", 0 0, o0086413C;  alias, 0 drivers
+v00854978_0 .net "s1", 0 0, L_0088F7A8;  1 drivers
+v008549D0_0 .net "s2", 0 0, L_0088F5F8;  1 drivers
+v00854B88_0 .net "s3", 0 0, L_0088F178;  1 drivers
+S_00861C88 .scope module, "ff1" "ff" 2 24, 3 1 0, S_0082D200;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /INPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "q"
+    .port_info 5 /OUTPUT 1 "q_"
+L_0088F1C0 .functor AND 1, L_008612F8, o0086401C, C4<1>, C4<1>;
+L_0088F718 .functor NOT 1, o0086401C, C4<0>, C4<0>, C4<0>;
+L_0088F760 .functor AND 1, L_0088F718, L_0088F370, C4<1>, C4<1>;
+L_0088F0E8 .functor OR 1, L_0088F1C0, L_0088F760, C4<0>, C4<0>;
+L_0088F130 .functor NOT 1, o00863FEC, C4<0>, C4<0>, C4<0>;
+L_0088F208 .functor NOT 1, L_0088F0E8, C4<0>, C4<0>, C4<0>;
+L_0088F568 .functor NAND 1, L_0088F0E8, L_0088F130, C4<1>, C4<1>;
+L_0088F5B0 .functor NAND 1, L_0088F208, L_0088F130, C4<1>, C4<1>;
+L_0088F640 .functor NAND 1, L_0088F568, L_0088F688, C4<1>, C4<1>;
+L_0088F688 .functor NAND 1, L_0088F5B0, L_0088F640, C4<1>, C4<1>;
+L_0088F2E0 .functor NAND 1, o00863FEC, L_0088F640, C4<1>, C4<1>;
+L_0088F328 .functor NAND 1, o00863FEC, L_0088F688, C4<1>, C4<1>;
+L_0088F370 .functor NAND 1, L_0088F2E0, L_0088F400, C4<1>, C4<1>;
+L_0088F400 .functor NAND 1, L_0088F328, L_0088F370, C4<1>, C4<1>;
+v008548C8_0 .net "clk", 0 0, o00863FEC;  alias, 0 drivers
+v00854B30_0 .net "clk_", 0 0, L_0088F130;  1 drivers
+v00854920_0 .net "clk_en", 0 0, o0086401C;  alias, 0 drivers
+v00854A80_0 .net "clk_en_", 0 0, L_0088F718;  1 drivers
+v00854BE0_0 .net "d", 0 0, L_0088F0E8;  1 drivers
+v00854C38_0 .net "d2", 0 0, L_0088F1C0;  1 drivers
+v00854CE8_0 .net "d3", 0 0, L_008612F8;  alias, 1 drivers
+v0088D500_0 .net "d_", 0 0, L_0088F208;  1 drivers
+v0088CD70_0 .net "q", 0 0, L_0088F370;  alias, 1 drivers
+v0088D5B0_0 .net "q2", 0 0, L_0088F760;  1 drivers
+v0088D240_0 .net "q_", 0 0, L_0088F400;  1 drivers
+v0088D608_0 .net "r1", 0 0, L_0088F5B0;  1 drivers
+v0088D2F0_0 .net "r2", 0 0, L_0088F688;  1 drivers
+v0088D558_0 .net "r3", 0 0, L_0088F328;  1 drivers
+v0088CDC8_0 .net "rst_n", 0 0, o0086413C;  alias, 0 drivers
+v0088D4A8_0 .net "s1", 0 0, L_0088F568;  1 drivers
+v0088D1E8_0 .net "s2", 0 0, L_0088F640;  1 drivers
+v0088CE20_0 .net "s3", 0 0, L_0088F2E0;  1 drivers
+S_00853B80 .scope module, "ff2" "ff" 2 33, 3 1 0, S_0082D200;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "clk_en"
+    .port_info 2 /INPUT 1 "rst_n"
+    .port_info 3 /INPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "q"
+    .port_info 5 /OUTPUT 1 "q_"
+L_00891140 .functor AND 1, L_0088EEA8, o0086401C, C4<1>, C4<1>;
+L_00891218 .functor NOT 1, o0086401C, C4<0>, C4<0>, C4<0>;
+L_00890F90 .functor AND 1, L_00891218, L_00890BE8, C4<1>, C4<1>;
+L_00891260 .functor OR 1, L_00891140, L_00890F90, C4<0>, C4<0>;
+L_00890DE0 .functor NOT 1, o00863FEC, C4<0>, C4<0>, C4<0>;
+L_00891068 .functor NOT 1, L_00891260, C4<0>, C4<0>, C4<0>;
+L_00890EB8 .functor NAND 1, L_00891260, L_00890DE0, C4<1>, C4<1>;
+L_00890D50 .functor NAND 1, L_00891068, L_00890DE0, C4<1>, C4<1>;
+L_008910B0 .functor NAND 1, L_00890EB8, L_00891188, C4<1>, C4<1>;
+L_00891188 .functor NAND 1, L_00890D50, L_008910B0, C4<1>, C4<1>;
+L_008911D0 .functor NAND 1, o00863FEC, L_008910B0, C4<1>, C4<1>;
+L_00890CC0 .functor NAND 1, o00863FEC, L_00891188, C4<1>, C4<1>;
+L_00890BE8 .functor NAND 1, L_008911D0, L_00890F48, C4<1>, C4<1>;
+L_00890F48 .functor NAND 1, L_00890CC0, L_00890BE8, C4<1>, C4<1>;
+v0088CFD8_0 .net "clk", 0 0, o00863FEC;  alias, 0 drivers
+v0088D298_0 .net "clk_", 0 0, L_00890DE0;  1 drivers
+v0088CE78_0 .net "clk_en", 0 0, o0086401C;  alias, 0 drivers
+v0088D3F8_0 .net "clk_en_", 0 0, L_00891218;  1 drivers
+v0088CC68_0 .net "d", 0 0, L_00891260;  1 drivers
+v0088CED0_0 .net "d2", 0 0, L_00891140;  1 drivers
+v0088CF28_0 .net "d3", 0 0, L_0088EEA8;  alias, 1 drivers
+v0088CF80_0 .net "d_", 0 0, L_00891068;  1 drivers
+v0088D030_0 .net "q", 0 0, L_00890BE8;  alias, 1 drivers
+v0088D660_0 .net "q2", 0 0, L_00890F90;  1 drivers
+v0088D138_0 .net "q_", 0 0, L_00890F48;  1 drivers
+v0088D0E0_0 .net "r1", 0 0, L_00890D50;  1 drivers
+v0088D3A0_0 .net "r2", 0 0, L_00891188;  1 drivers
+v0088D088_0 .net "r3", 0 0, L_00890CC0;  1 drivers
+v0088D6B8_0 .net "rst_n", 0 0, o0086413C;  alias, 0 drivers
+v0088D710_0 .net "s1", 0 0, L_00890EB8;  1 drivers
+v0088D190_0 .net "s2", 0 0, L_008910B0;  1 drivers
+v0088D348_0 .net "s3", 0 0, L_008911D0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "regctr.v";
+    "ff.v";
