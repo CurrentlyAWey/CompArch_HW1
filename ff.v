@@ -7,7 +7,7 @@ module ff (
 	output q_
 );
 
-	wire d_,s1,r1,a,b,clk_,s2,s3,r2,r3,		clk_en_,d2,d3,q2,d;
+	wire d_,s1,r1,a,b,clk_,s2,s3,r2,r3,clk_en_,d2,d3,q2,d;
 
 	and(d2,d3, clk_en);
 	not(clk_en_, clk_en);
