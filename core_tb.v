@@ -12,14 +12,14 @@ module core_tb ();
 		.c0(c0)
 	);
 	always
-		#2 clk = ~clk;
+		#1 clk = ~clk;
 	initial begin
 		$monitor ($time, " State: %d %d clock: %d inputs: %d %d", c1, c0, clk, i1, i0);
 		clk = 1'b0;
 		clk_en = 1'b1;
 		reset = 1'b1;
-		i1 = 1'b1;
-		i0 = 1'b1;
+		i1 = 1'b0;
+		i0 = 1'b0;
 		#3 i1 = 1'b0;
 		#3 i0 = 1'b0;
 		#5 reset = ~reset;

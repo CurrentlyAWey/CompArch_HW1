@@ -9,9 +9,8 @@ module programCounter (
 	clk,
 	rst_n,
 );
-	input jnp, inc, r2, i1, i0, clk, rst_n;
-	output p1, p0;
-	wire jnp, inc, r2, i1, i0, p1, p0;
+	input wire jnp, inc, r2, i1, i0, clk, rst_n;
+	output wire p1, p0;
 	//internal wires
 	wire a1, a0, allowJump, clk_en, mux_to_ff_MSB, mux_to_ff_LSB, Q_to_Adder_MSB, Q_to_Adder_LSB, plusOne_to_encode_MSB, plusOne_to_encode_LSB, plusTwo_to_encode_MSB, plusTwo_to_encode_LSB;
 	assign allowJump = (~r2)&jnp;
@@ -24,11 +23,11 @@ module programCounter (
 		.x3(i1),
 		.x2(plusOne_to_encode_MSB),
 		.x1(plusTwo_to_encode_MSB),
-		.x0(1'b0),
+		.x0(Q_to_Adder_MSB),
 		.y3(i0),
 		.y2(plusOne_to_encode_LSB),
 		.y1(plusTwo_to_encode_LSB),
-		.y0(1'b0),
+		.y0(Q_to_Adder_LSB),
 		.i1(mux_to_ff_MSB),
 		.i0(mux_to_ff_LSB)
 	);
@@ -70,6 +69,5 @@ module programCounter (
 		.d3(mux_to_ff_LSB),
 		.q(Q_to_Adder_LSB)
 	);
-
 
 endmodule

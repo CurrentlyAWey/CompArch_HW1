@@ -21,7 +21,11 @@ module paperProcessor_TB ();
 	initial begin
 		clk = 1'b0;
 		clk_en = 1'b0;
-		reset = 1'b0;
-		$monitor ("registerCount: %b programCount: %b stateCount: %b", registerCount, programCount, stateCount);
+		reset = 1'b1;
+		$monitor ($time, " registerCount: %b programCount: %b stateCount: %b", registerCount, programCount, stateCount);
+		#5 clk_en = ~clk_en;
+		#5 reset = ~reset;
+		#30; 
+			$stop;
 	end
 endmodule

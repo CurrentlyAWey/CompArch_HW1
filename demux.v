@@ -12,7 +12,7 @@ module demux (
 	wire c1, c0, inc, jnp, halt, start;
 	
 	assign start = (~c1) & (~c0);
-	assign jnp = (~c1) & (c0);
+	assign inc = (~c1) & (c0);
 	assign halt = (c1) & (~c0);
-	assign inc = (c1) & (c0);
+	assign jnp = (c1) & (c0);
 endmodule

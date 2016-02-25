@@ -1,15 +1,16 @@
 module processorCore(
-	input clk,
-	input clk_en,
-	input reset,
-	input i1,	//MSB Instruction
-	input i0,	//LSB Instruction,
+	clk,
+	clk_en,
+	reset,
+	i1,	//MSB Instruction
+	i0,	//LSB Instruction,
 	
-	output c1,	//MSB state
-	output c0	//LSB state
+	c1,	//MSB state
+	c0	//LSB state
 );
-
-	wire i1, i0, c1, c0, d1, d0 ,c0_,c1_;
+	input wire clk, clk_en, reset, i1, i0;
+	output wire c1, c0;
+	wire d1, d0 ,c0_,c1_;
 	assign d1 = c1&(~c0) | (~c0)&(~i0);
 	assign d0 = (~c1)&(~c0)&(~i1);
 	ff ff0 (

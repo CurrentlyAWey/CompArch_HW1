@@ -14,8 +14,8 @@ module mux41 (
 	not(a1_,a1);
 
 	and(and0,a0_,a1_,d0);
-	and(and1,a0_,a1,d1);
-	and(and2,a0,a1_,d2);
+	and(and1,a0,a1_,d1);
+	and(and2,a0_,a1,d2);
 	and(and3,a0,a1,d3);
 	or(q,and0,and1,and2,and3);
 endmodule
