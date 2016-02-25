@@ -1,5 +1,4 @@
 `include "ff.v"
-
 `ifndef processorCore
 `define processorCore
 `define N 4

@@ -1,14 +1,14 @@
-`include "processorCore.v"
-`include "programCounter.v"
-`include "registerCounter.v"
-`include "demux.v"
-`include "memory.v"
+
 `ifndef paperProcessor
 `define paperProcessor
 `define N 4
 `define M ('N << 2)
-
-`endif
+	
+	`include "processorCore.v"
+	`include "programCounter.v"
+	`include "registerCounter.v"
+	`include "demux.v"
+	`include "memory.v"
 
 module paperProcessor(
 	clk,
@@ -19,6 +19,7 @@ module paperProcessor(
 	stateCount,
 	instruction
 );
+
 	input clk, clk_en, reset;
 	
 	output wire [2:0] registerCount;
@@ -74,3 +75,5 @@ module paperProcessor(
 		.data(data)
 	);
 endmodule
+
+`endif

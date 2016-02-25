@@ -1,9 +1,8 @@
-`ifndef adder
-`define adder
+`ifndef _adder_
+`define _adder_
 `define N 4
 `define M ('N << 2)
 
-`endif
 
 module adder(
 	a1	, //MSB input 1
@@ -20,3 +19,5 @@ module adder(
 	assign c1 = (~a1)&(~a0)&(b1) | (~a1)&b1&(~b0) | a1&(~a0)&(~b1) | a1&(~b1)&(~b0) | (~a1)&a0&(~b1)&b0;
 	assign c0 = (~a0) & b0 | a0 & (~b0);
 endmodule
+
+`endif

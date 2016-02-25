@@ -3,8 +3,6 @@
 `define N 4
 `define M ('N << 2)
 
-`endif
-
 module memory (
 	address, 
 	data
@@ -18,3 +16,5 @@ module memory (
 
 	initial $readmemb("doThis.why", s_memory);
 endmodule
+
+`endif

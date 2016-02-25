@@ -1,13 +1,8 @@
-`include "registerCounter.v"
-
 `ifndef registerCounter
 `define registerCounter
 `define N 4
 `define M ('N << 2)
 
-`endif
-
-`include "ff.v" 
 
 module registerCounter (
 	clk    ,
@@ -17,6 +12,7 @@ module registerCounter (
 	q1     , //c1 	2SB of state
 	q0       //c0	LSB of state
 );
+	`include "ff.v" 
 	input wire clk, clk_en, rst_n;
 	output wire q2, q1, q0;
 	wire d0,d1,d2;
@@ -52,3 +48,5 @@ module registerCounter (
 	);
 
 endmodule // regctr
+
+`endif

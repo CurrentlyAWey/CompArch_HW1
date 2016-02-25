@@ -1,9 +1,8 @@
+`include "mux41.v"
 `ifndef dualMux
 `define dualMux
 `define N 4
 `define M ('N << 2)
-
-`endif
 
 module dualMux (
 	input  a1,
@@ -45,3 +44,5 @@ mux41 LSB (
 
 
 endmodule
+
+`endif
