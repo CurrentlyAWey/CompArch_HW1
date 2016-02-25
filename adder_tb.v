@@ -1,3 +1,5 @@
+`include "adder.v"
+
 module adder_tb ();
 	reg a1, a0, b1, b0;
 	wire c1, c0;

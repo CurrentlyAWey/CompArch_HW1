@@ -1,3 +1,5 @@
+`include "processorCore.v"
+
 module core_tb ();
 	reg clk, clk_en, reset, i1, i0;
 	wire c1, c0;

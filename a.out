@@ -1,5 +1,5 @@
 #! c:/iverilog-x86/bin/vvp
-:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_version "0.10 (stable)" "(v0_1)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
 :vpi_module "system";

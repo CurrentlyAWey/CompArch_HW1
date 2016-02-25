@@ -1,3 +1,4 @@
+`include "dualMux.v"
 module dualMux_tb();
 	reg a1, a0, x3, x2, x1, x0, y3, y2, y1, y0;
 	wire i1, i0;

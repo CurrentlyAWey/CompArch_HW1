@@ -1,3 +1,10 @@
+`ifndef demux
+`define demux
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module demux (
 	c1, //MSB address of demux 
 	c0, //LSB address of demux 

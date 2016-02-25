@@ -1,3 +1,12 @@
+`include "ff.v"
+
+`ifndef processorCore
+`define processorCore
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module processorCore(
 	clk,
 	clk_en,

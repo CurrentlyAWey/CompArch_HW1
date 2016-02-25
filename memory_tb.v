@@ -1,3 +1,4 @@
+`include "memory.v"
 module memory_tb();
 	reg [1:0] address;
 	wire [1:0] data;

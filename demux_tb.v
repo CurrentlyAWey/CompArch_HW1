@@ -1,3 +1,4 @@
+`include "demux.v"
 module demux_tb ();
 	reg c1, c0;
 	wire jnp, inc, halt, start;

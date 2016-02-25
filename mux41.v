@@ -1,3 +1,10 @@
+`ifndef mux41
+`define mux41
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module mux41 (
 	input  a1,
 	input a0,

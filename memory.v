@@ -1,3 +1,10 @@
+`ifndef memory
+`define memory
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module memory (
 	address, 
 	data

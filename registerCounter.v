@@ -1,3 +1,14 @@
+`include "registerCounter.v"
+
+`ifndef registerCounter
+`define registerCounter
+`define N 4
+`define M ('N << 2)
+
+`endif
+
+`include "ff.v" 
+
 module registerCounter (
 	clk    ,
 	clk_en ,

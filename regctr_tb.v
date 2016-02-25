@@ -1,3 +1,4 @@
+`include "registerCounter.v"
 module regctr_tb ();
 	reg clk, clk_en, rst_n;
 	wire q2, q1, q0;

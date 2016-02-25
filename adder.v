@@ -1,3 +1,10 @@
+`ifndef adder
+`define adder
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module adder(
 	a1	, //MSB input 1
 	a0	, //LSB input 1

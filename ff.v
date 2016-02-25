@@ -1,3 +1,10 @@
+`ifndef ff
+`define ff
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module ff (
 	clk   , // Clock
 	clk_en, // Clock Enable

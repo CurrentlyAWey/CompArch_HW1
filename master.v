@@ -1,3 +1,4 @@
+`include "paperProcessor.v"
 module paperProcessor_TB ();
 	wire [2:0] registerCount;
 	wire [1:0] programCount;

@@ -1,3 +1,14 @@
+`include "dualMux.v"
+`include "adder.v"
+`include "ff.v"
+
+`ifndef programCounter
+`define programCounter
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module programCounter (
 	jnp,	//If coming from the jnp command, increment by 2 or jnp to the addres dictated by i2 and i0, depending on r2, the register overflow bit
 	inc, //If coming from the increment command, simply increment by 1

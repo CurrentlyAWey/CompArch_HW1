@@ -1,3 +1,10 @@
+`ifndef dualMux
+`define dualMux
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module dualMux (
 	input  a1,
 	input a0,

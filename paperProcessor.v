@@ -1,3 +1,15 @@
+`include "processorCore.v"
+`include "programCounter.v"
+`include "registerCounter.v"
+`include "demux.v"
+`include "memory.v"
+`ifndef paperProcessor
+`define paperProcessor
+`define N 4
+`define M ('N << 2)
+
+`endif
+
 module paperProcessor(
 	clk,
 	clk_en,

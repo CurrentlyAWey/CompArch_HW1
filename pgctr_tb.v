@@ -1,3 +1,4 @@
+`include "programCounter.v"
 module pgctr_tb();
 	reg jnp, inc, r2, i1, i0, clk, rst_n;
 	wire p1, p0;
