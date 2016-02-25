@@ -27,34 +27,49 @@ module stimulus();
 	end
 
 	initial begin
-		$display("time\td\tclk\tq\tclk_en\trst_n\n"); //Setup Table Headers
-
 		// Initialize Inputs
 		d = 1;
 		/* Make a regular pulsing clock. */
 		clk = 0;
 		
 		clk_en = 1;
-		#20			rst_n = 0;
-
-		#20			d = 0;
-		#20 		d = 1;
-		#20			d = 0;
-		#20 		d = 1;
 		#20			rst_n = 1;
-		#20			d = 0;
+		#5 			clk = 1;
+		#5 			clk = 0;
+		#5			d = 0;
+		#5 			clk = 1;
+		#5 			clk = 0;
+		#05			d = 1;
+		#5 			clk = 1;
+		#5 			clk = 0;
+		#05			d = 0;
+		#5 			clk = 1;
+		#5 			clk = 0;
 		#20 		d = 1;
+		#5 			clk = 1;
+		#5 			clk = 0;
+		#20			rst_n = 0;
+		#20			d = 0;
+		#5 			clk = 1;
+		#5 			clk = 0;
+		#20 		d = 1;
+		#5 			clk = 1;
+		#5 			clk = 0;
 		#20			d = 0;
 		#20 		d = 1;
 
 		#40;
 
+		$display("clk_en stuff");
+		#5			clk_en = 0;
+
+
 	end
 
-	always #20 clk = !clk;
+	always #1 clk = !clk;
 		
 	initial begin
-		$monitor("%d\t%d\t%d\t%d\t%d\t%d \n",$time,d,clk,q,clk_en,rst_n);
+		$monitor("d: %d\tclk: %d\tq: %d\tclk_en: %d\trst_n: %d \n",d,clk,q,clk_en,rst_n);
 	end
 
 	initial #100 $finish;
