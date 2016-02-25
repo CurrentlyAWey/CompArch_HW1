@@ -10,8 +10,8 @@ module processorCore(
 );
 
 	wire i1, i0, c1, c0, d1, d0 ,c0_,c1_;
-	assign d0 = ~c1 | c0&(~i1)&i0;
-	assign d1 = ~c1 | ~c0 | ~i0 | i1;
+	assign d1 = c1&(~c0) | (~c0)&(~i0);
+	assign d0 = (~c1)&(~c0)&(~i1);
 	ff ff0 (
 		.clk   (clk),
 		.clk_en(clk_en),
