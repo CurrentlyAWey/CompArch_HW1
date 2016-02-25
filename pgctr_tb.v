@@ -22,19 +22,17 @@ module pgctr_tb();
 		$monitor($time, " Clock:%d jnp:%d inc:%d r2:%d i:%d%d p: %d%d a: %d%d:", clk, jnp, inc, r2, i1, i0, p1, p0, a1, a0);
 		rst_n = 1'b1;
 		clk = 1'b0;
-		i1 = 1'b1;
-		i0 = 1'b1;
+		i1 = 1'b0;
+		i0 = 1'b0;
 		jnp = 1'b0;
 		inc = 1'b0;
 		r2 = 1'b0;
 		#3 rst_n = ~rst_n;
 		#4 jnp = ~jnp;
-		#5 jnp =  ~jnp;
-		#5 i1 = 1'b0;
-		#5 i0 = 1'b0;
 		#5 jnp = ~jnp;
-		#6 jnp = ~jnp;
+		#6 r2 = ~r2;
+		#8 jnp = ~jnp;
 		
-		#6 $stop;
+		#9 $stop;
 	end
 endmodule

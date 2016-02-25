@@ -4,16 +4,14 @@ module paperProcessor(
 	reset,
 	registerCount,
 	programCount,
-	stateCount
+	stateCount,
+	instruction
 );
 	input clk, clk_en, reset;
-	output [2:0] registerCount;
-	output [1:0] programCount;
-	output [1:0] stateCount;
-	wire [2:0] registerCount;
-	wire [1:0] programCount;
-	wire [1:0] stateCount;
-
+	output wire [2:0] registerCount;
+	output wire [1:0] programCount;
+	output wire [1:0] stateCount;
+	output wire [1:0] instruction;
 	wire c1, c0, halt, jnp, inc, start, r2, r1, r0, p1, p0, i1, i0;
 	wire [1:0] address;
 	assign address = {p1, p0};
@@ -21,8 +19,8 @@ module paperProcessor(
 	assign data = {i1, i0};
 	assign registerCount = {r2, r1, r0};
 	assign programCount = {p1, p0};
-	assign stateCount = {i1, i0};
-
+	assign stateCount = {c1, c0};
+	assign instruction = {i1, i0};
 	processorCore alu (
 		.clk(clk),
 		.clk_en(clk_en),

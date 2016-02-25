@@ -15,7 +15,7 @@ module ff_tb();
 	initial begin
 		$monitor($time, " Clock: %d Input: %d Output: %d", clk, d3, q);
 		rst_n = 1'b1;
-		clk_en = 1'b1;
+		clk_en = 1'b0;
 		clk = 1'b0;
 		d3 =  1'b0;
 		#2 rst_n = ~rst_n;

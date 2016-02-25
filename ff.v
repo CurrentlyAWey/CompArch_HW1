@@ -12,7 +12,7 @@ module ff (
 		if (clk_en & ~rst_n) begin
 			q <= d3;
 			q_ <= ~d3;
-		end else begin
+		end else if (rst_n)begin
 			q <= 1'b0;
 			q_ <= 1'b0;
 		end
