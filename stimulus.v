@@ -43,6 +43,9 @@ module stimulus();
 		#5 			clk = 1;
 		#5 			clk = 0;
 		#05			d = 0;
+
+		$display("clk_en stuff");
+		#5			clk_en = 0;
 		#5 			clk = 1;
 		#5 			clk = 0;
 		#20 		d = 1;
@@ -60,8 +63,6 @@ module stimulus();
 
 		#40;
 
-		$display("clk_en stuff");
-		#5			clk_en = 0;
 
 
 	end
