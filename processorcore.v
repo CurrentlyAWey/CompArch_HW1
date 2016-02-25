@@ -1,4 +1,4 @@
-module processorcore(
+module processorCore(
 	input clk,
 	input clk_en,
 	input reset,

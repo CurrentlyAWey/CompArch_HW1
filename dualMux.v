@@ -1,4 +1,4 @@
-module ram (
+module dualMux (
 	input  a1,
 	input a0,
 	input x3, //MSB of data at 11
