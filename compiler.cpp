@@ -21,7 +21,6 @@ int main(int argc, char*argv[]){
 		for (int i = 0; i < instruction.size(); ++i){
 			instruction[i] = tolower(instruction[i]);
 		}
-		cout << instruction << endl;
 		if (instruction == "jnp"){
 			output << "01" << endl;
 		} else if (instruction == "inc"){
