@@ -3,7 +3,6 @@
 `define N 4
 `define M ('N << 2)
 
-`endif
 
 module demux (
 	c1, //MSB address of demux 
@@ -23,3 +22,5 @@ module demux (
 	assign halt = (c1) & (~c0);
 	assign inc = (c1) & (c0);
 endmodule
+
+`endif

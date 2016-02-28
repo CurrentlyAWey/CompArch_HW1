@@ -4,7 +4,7 @@
 `define N 4
 `define M ('N << 2)
 
-`endif
+
 
 module processorCore(
 	clk,
@@ -38,3 +38,4 @@ module processorCore(
 		.q_    (c1_)
 	);
 endmodule	
+`endif
