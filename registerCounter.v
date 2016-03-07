@@ -2,23 +2,23 @@
 `define registerCounter
 `define N 4
 `define M ('N << 2)
-
+`include "ff.v"
 
 module registerCounter (
 	clk    ,
 	clk_en ,
 	rst_n,
-	q2     , //c2	MSB of state
-	q1     , //c1 	2SB of state
-	q0       //c0	LSB of state
+	r2     , //c2	MSB of state
+	r1     , //c1 	2SB of state
+	r0       //c0	LSB of state
 );
-	`include "ff.v" 
+ 
 	input wire clk, clk_en, rst_n;
-	output wire q2, q1, q0;
+	output wire r2, r1, r0;
 	wire d0,d1,d2;
-	assign d2 = q2&(~q1) | q2&(~q0) | (~q2)&q1&q0; 
-	assign d1 = (~q1)&q0 | q1&(~q0);
-	assign d0 = ~q0; 
+	assign d2 = r2&(~r1) | r2&(~r0) | (~r2)&r1&r0; 
+	assign d1 = (~r1)&r0 | r1&(~r0);
+	assign d0 = ~r0; 
 
 	ff ff0 (
 		.clk   (clk   ),
@@ -26,7 +26,7 @@ module registerCounter (
 		.rst_n (rst_n ),
 		.d3    (d0    ),
 		
-		.q     (q0    )
+		.q     (r0    )
 	);
 
 	ff ff1 (
@@ -35,7 +35,7 @@ module registerCounter (
 		.rst_n (rst_n ),
 		.d3    (d1    ),
 		
-		.q     (q1    )
+		.q     (r1    )
 	);
 
 	ff ff2 (
@@ -44,7 +44,7 @@ module registerCounter (
 		.rst_n (rst_n ),
 		.d3    (d2    ),
 		
-		.q     (q2    )
+		.q     (r2    )
 	);
 
 endmodule // regctr

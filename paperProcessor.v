@@ -1,5 +1,3 @@
-
-
 `ifndef paperProcessor
 `define paperProcessor
 `define N 4
@@ -35,7 +33,7 @@ module paperProcessor(
 	assign programCount = address;
 	assign stateCount = {c1, c0};
 	assign instruction = data;
-	processorCore alu (
+	processorCore pCore (
 		.clk(clk),
 		.clk_en(clk_en),
 		.reset(reset),
@@ -56,9 +54,9 @@ module paperProcessor(
 		.clk(clk),
 		.clk_en(inc),
 		.rst_n(reset),
-		.q2(r2),
-		.q1(r1),
-		.q0(r0)
+		.r2(r2),
+		.r1(r1),
+		.r0(r0)
 	);
 	programCounter pCounter (
 		.jnp(jnp),

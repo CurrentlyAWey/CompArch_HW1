@@ -1,5 +1,5 @@
 $date
-	Fri Feb 26 00:49:58 2016
+	Mon Mar 07 16:36:27 2016
 $end
 $version
 	Icarus Verilog
@@ -34,7 +34,15 @@ $var wire 2 3 data [1:0] $end
 $var wire 1 4 c1 $end
 $var wire 1 5 c0 $end
 $var wire 2 6 address [1:0] $end
-$scope module alu $end
+$scope module decoder $end
+$var wire 1 2 halt $end
+$var wire 1 1 inc $end
+$var wire 1 0 jnp $end
+$var wire 1 + start $end
+$var wire 1 4 c1 $end
+$var wire 1 5 c0 $end
+$upscope $end
+$scope module pCore $end
 $var wire 1 % clk $end
 $var wire 1 & clk_en $end
 $var wire 1 7 d0 $end
@@ -62,14 +70,6 @@ $var wire 1 ' rst_n $end
 $var reg 1 4 q $end
 $var reg 1 ; q_ $end
 $upscope $end
-$upscope $end
-$scope module decoder $end
-$var wire 1 5 c0 $end
-$var wire 1 4 c1 $end
-$var wire 1 2 halt $end
-$var wire 1 1 inc $end
-$var wire 1 0 jnp $end
-$var wire 1 + start $end
 $upscope $end
 $scope module pCounter $end
 $var wire 1 = a0 $end
@@ -185,9 +185,9 @@ $var wire 1 ` d0 $end
 $var wire 1 a d1 $end
 $var wire 1 b d2 $end
 $var wire 1 ' rst_n $end
-$var wire 1 - q2 $end
-$var wire 1 . q1 $end
-$var wire 1 / q0 $end
+$var wire 1 - r2 $end
+$var wire 1 . r1 $end
+$var wire 1 / r0 $end
 $scope module ff0 $end
 $var wire 1 % clk $end
 $var wire 1 1 clk_en $end
@@ -305,33 +305,27 @@ $end
 0%
 #5
 1J
-0A
-09
 1T
-b0 $
-b0 (
-b0 3
-b0 g
 b0 #
 b0 )
 b0 6
 b0 f
 0H
-0I
-0Q
-0W
 07
 08
-0+
+0Q
+0W
+0I
+1>
 0?
 1@
 1P
 1V
 0Y
-1>
+0+
+11
 0=
 00
-11
 14
 b11 !
 b11 *
@@ -342,23 +336,17 @@ b11 *
 1R
 1J
 1E
-08
+18
+17
 0@
 1Q
 0T
 1W
-17
 0F
-1A
-19
-1+
 0>
+1+
 1a
 1D
-b1 $
-b1 (
-b1 3
-b1 g
 b1 #
 b1 )
 b1 6
@@ -381,106 +369,35 @@ b1 ,
 1L
 0%
 #7
-0J
-0A
-09
-0H
-0Q
-0U
-0W
+1H
+1Z
 b0 $
 b0 (
 b0 3
 b0 g
-b10 #
-b10 )
-b10 6
-b10 f
-1G
-1>
-0R
-0I
-07
-0+
-1?
-1@
-0P
-0S
-0V
-0Y
-1=
-10
-0<
-b1 !
-b1 *
-15
-1%
-#8
-0@
-1Q
-1W
-0J
-0I
-0E
+b1 #
+b1 )
+b1 6
+b1 f
 0G
-0>
-0T
-0Z
-17
-18
-1F
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
-0H
-1+
-0?
-1P
-1V
-0D
-0=
-00
-1<
-b0 !
-b0 *
-05
-1N
-0L
-0%
-#9
-1J
-0A
-09
-1T
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
-0H
-0I
-0Q
-0W
+0J
 07
 08
-0+
+0Q
+0W
+0R
+1I
+1>
 0?
 1@
 1P
+0S
 1V
 0Y
-1>
+0+
+11
 0=
 00
-11
 0;
 14
 0<
@@ -488,32 +405,28 @@ b11 !
 b11 *
 15
 1%
-#10
-1R
-1J
+#8
+0C
+1X
+1I
+1G
 1E
-08
+18
+17
 0@
 1Q
-0T
 1W
-17
-0F
-1A
-19
-1+
+0Z
+1F
 0>
+1+
 1a
-1D
-b1 $
-b1 (
-b1 3
-b1 g
-b1 #
-b1 )
-b1 6
-b1 f
-1H
+0D
+b10 #
+b10 )
+b10 6
+b10 f
+0H
 01
 1`
 1<
@@ -528,17 +441,17 @@ b0 *
 b10 "
 b10 ,
 1.
-0N
-1L
+0O
+1K
+1N
+0L
 0%
-#11
-0J
-0A
-09
-0H
-0Q
-0U
-0W
+#9
+1J
+0B
+0:
+1T
+1Z
 b0 $
 b0 (
 b0 3
@@ -547,91 +460,22 @@ b10 #
 b10 )
 b10 6
 b10 f
-1G
-1>
-0R
-0I
-07
-0+
-1?
-1@
-0P
-0S
-0V
-0Y
-1=
-10
-0<
-b1 !
-b1 *
-15
-1%
-#12
-0@
-1Q
-1W
-0J
-0I
-0E
-0G
-0>
-0T
-0Z
-17
-18
-1F
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
 0H
-1+
-0?
-1P
-1V
-0D
-0=
-00
-1<
-b0 !
-b0 *
-05
-1N
-0L
-0%
-#13
-1J
-0A
-09
-1T
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
-0H
-0I
-0Q
-0W
+1I
 07
 08
-0+
+0Q
+0W
+0X
+1>
 0?
 1@
 1P
 1V
-0Y
-1>
+0+
+11
 0=
 00
-11
 0;
 14
 0<
@@ -639,32 +483,35 @@ b11 !
 b11 *
 15
 1%
-#14
+#10
+0E
 1R
 1J
-1E
-08
+1X
+1I
+18
+07
 0@
 1Q
 0T
 1W
-17
+0Z
 0a
 0F
-1A
-19
-1+
+1B
+1:
 0>
+1+
 1b
 1D
-b1 $
-b1 (
-b1 3
-b1 g
-b1 #
-b1 )
-b1 6
-b1 f
+b10 $
+b10 (
+b10 3
+b10 g
+b11 #
+b11 )
+b11 6
+b11 f
 1H
 01
 0`
@@ -681,214 +528,7 @@ b11 ,
 0N
 1L
 0%
-#15
-0J
-0A
-09
-0H
-0Q
-0U
-0W
-b0 $
-b0 (
-b0 3
-b0 g
-b10 #
-b10 )
-b10 6
-b10 f
-1G
-1>
-0R
-0I
-07
-0+
-1?
-1@
-0P
-0S
-0V
-0Y
-1=
-10
-0<
-b1 !
-b1 *
-15
-1%
-#16
-0@
-1Q
-1W
-0J
-0I
-0E
-0G
-0>
-0T
-0Z
-17
-18
-1F
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
-0H
-1+
-0?
-1P
-1V
-0D
-0=
-00
-1<
-b0 !
-b0 *
-05
-1N
-0L
-0%
-#17
-1J
-0A
-09
-1T
-b0 $
-b0 (
-b0 3
-b0 g
-b0 #
-b0 )
-b0 6
-b0 f
-0H
-0I
-0Q
-0W
-07
-08
-0+
-0?
-1@
-1P
-1V
-0Y
-1>
-0=
-00
-11
-0;
-14
-0<
-b11 !
-b11 *
-15
-1%
-#18
-1R
-1J
-1E
-08
-0@
-1Q
-0T
-1W
-17
-0F
-1A
-19
-1+
-0>
-1b
-1D
-b1 $
-b1 (
-b1 3
-b1 g
-b1 #
-b1 )
-b1 6
-b1 f
-1H
-01
-1`
-1<
-05
-1;
-b0 !
-b0 *
-04
-1c
-0/
-1d
-0.
-0e
-b100 "
-b100 ,
-1-
-0N
-1L
-0%
-#19
-0R
-1I
-07
-0+
-1@
-0P
-1S
-0V
-1Y
-1=
-10
-0<
-b1 !
-b1 *
-15
-1%
-#20
-18
-0C
-0E
-0A
-1B
-09
-1:
-b10 $
-b10 (
-b10 3
-b10 g
-b11 #
-b11 )
-b11 6
-b11 f
-1G
-1R
-1J
-1X
-1I
-07
-1+
-0@
-1P
-0S
-1V
-0Y
-0=
-00
-1<
-b0 !
-b0 *
-05
-0O
-1K
-0%
-#21
+#11
 0+
 12
 0;
@@ -896,5 +536,5 @@ b10 !
 b10 *
 14
 1%
-#22
+#12
 0%
